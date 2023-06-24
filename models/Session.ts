@@ -1,13 +1,14 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document } from "mongoose";
 
 export interface ISession extends Document {
-  date: string;
-  time: string;
+  date: Date;
+  isBooked: boolean;
 }
 
 const SessionSchema: Schema = new Schema({
-  date: { type: String, required: true },
-  time: { type: String, required: true },
+  date: { type: Date, required: true },
+  // time: { type: String, required: true },
+  isBooked: { type: Boolean },
 });
 
-export default mongoose.model<ISession>('Session', SessionSchema);
+export default mongoose.model<ISession>("Session", SessionSchema);
